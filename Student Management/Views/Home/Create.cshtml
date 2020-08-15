@@ -1,36 +1,43 @@
 ﻿@model Student
+@inject IStudentRepository _studentRepository
+@*依赖注入指令inject 将服务注入到视图之中*@
 
-@{ 
+@{
     ViewBag.Title = "创建学生信息";
 }
-    <form asp-controller="home" asp-action="create" method="post" class="mt-3">
-        <div asp-validation-summary="All" class="text-danger"></div>
-        <div class="form-group row">
-            <label asp-for="Name"class="col-sm-2 col-form-label "></label>   
-            <div class="col-sm-10">
-                <input asp-for="Name" class="form-control" placeholder="请输入名字" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
+<form asp-controller="home" asp-action="create" method="post" class="mt-3">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group row">
+        <label asp-for="Name" class="col-sm-2 col-form-label "></label>   @*姓名标题*@
+        <div class="col-sm-10">
+            <input asp-for="Name" class="form-control" placeholder="请输入名字" />
+            <span asp-validation-for="Name" class="text-danger"></span> @*输错提示*@
         </div>
-        <div class="form-group row">
-            <label asp-for="Email" class="col-sm-2 col-form-label"></label>
-            <div class="col-sm-10">
-            <input asp-for="Email" class="form-control" placeholder="请输入邮箱"/>
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="Email" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="Email" class="form-control" placeholder="请输入邮箱" />
+            <span asp-validation-for="Email" class="text-danger"></span>
         </div>
-        <div class="form-group row">
-            <label asp-for="ClassName" class="col-sm-2 col-form-label"></label>
-            <div class="col-sm-10">
-            <select asp-for="ClassName" asp-items="Html.GetEnumSelectList<ClassNameEnum>()"class="custom-select mr-sm-2">
+    </div>
+    <div class="form-group row">
+        <label asp-for="ClassName" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <select asp-for="ClassName" asp-items="Html.GetEnumSelectList<ClassNameEnum>()" class="custom-select mr-sm-2">
                 <option value="">请选择</option>
             </select>
             <span asp-validation-for="ClassName" class="text-danger"></span>
-            </div>
         </div>
+    </div>
 
-        <div class="form-group">
+    <div class="form-group">
 
         <button type="submit" class="btn btn-primary">创建</button>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-10">
+            学生信息总人数=@_studentRepository.GetAllStudents().Count().ToString()
         </div>
-    </form>
+    </div>
+</form>
