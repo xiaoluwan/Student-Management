@@ -18,10 +18,8 @@
     </environment>
 
 
-    <link href="~/css/site.css" rel="stylesheet" />
-
     <script src="~/lib/echarts/echarts.js"></script>
-
+    <link href="~/css/site.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -54,6 +52,6 @@
     </div>
     <script src="~/lib/twitter-bootstrap/js/bootstrap.js"></script>
     <script src="~/lib/jquery/jquery.js"></script>
-    @RenderSection("Scripts", required: false) @*渲染节点名称*@
+    @RenderSection("Scripts", required: false) @*渲染节点名称全局处理，自定义js在此渲染*@
 </body>
 </html>
