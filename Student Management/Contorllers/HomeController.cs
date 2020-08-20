@@ -45,11 +45,18 @@ namespace StudentManagement.Contorllers {
                 //Student newStudent = _studentRepository.Add(student);
                 //return RedirectToAction("Details", new { id = newStudent.Id });
                 string uniqueFileName = null;
-                if (model.Photo!=null) {
+                if (model.Photos!=null&&model.Photos.Count>0) {
+                    foreach (var Photo  in model.Photos) {
+                                
+                    //必须将图像上传到WWWroot中的images文件夹
+                    //而要获取wwwroot文件夹的路径，我们需要注入ASP.NET Core提供的HostingEnvironment服务
                     string uploadFolder = Path.Combine(hostingEnvironment.WebRootPath, "images");
-                    uniqueFileName = Guid.NewGuid().ToString() + "_" + model.Photo.FileName;
+                    //为了确保文件名是唯一的，我们在文件名后附加一个新的GUID值和一个下划线
+                    uniqueFileName = Guid.NewGuid().ToString() + "_" + Photo.FileName;//添加全局唯一标识符
                     string filePath = Path.Combine(uploadFolder , uniqueFileName);
-                    model.Photo.CopyTo(new FileStream(filePath, FileMode.Create));
+                    //使用IFormFile接口提供的CopyTo()方法将文件复制到wwwroot/images文件夹
+                    Photo.CopyTo(new FileStream(filePath, FileMode.Create));
+                    }
                 }
                 Student newStudent = new Student {
                     Name = model.Name,
