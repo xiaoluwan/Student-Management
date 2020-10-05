@@ -8,7 +8,7 @@ using StudentManagement.Models;
 namespace StudentManagement.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    partial class AppDbContextModelSnapshot : ModelSnapshot//当前链接字符串快照
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {

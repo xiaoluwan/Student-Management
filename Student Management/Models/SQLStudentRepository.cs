@@ -11,6 +11,7 @@ namespace StudentManagement.Models {
             this.context = context;
         }
         public Student Add(Student student) {
+  
             context.Students.Add(student);
             context.SaveChanges();
             return student;
@@ -34,8 +35,8 @@ namespace StudentManagement.Models {
         }
 
         public Student Update(Student updateStudent) {
-            var student = context.Students.Attach(updateStudent);
-            student.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            var student = context.Students.Attach(updateStudent);//给updateStudent类打上标签，EFCroe才能把它放到Context里面 进行操作
+            student.State = Microsoft.EntityFrameworkCore.EntityState.Modified;// 可以被修改的
             context.SaveChanges();
             return updateStudent;
         }

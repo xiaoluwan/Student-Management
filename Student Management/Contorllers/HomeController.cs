@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Hosting.Internal;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.SqlServer.Server;
 using StudentManagement.Models;
 using StudentManagement.ViewModels;
 using System;
@@ -9,7 +10,7 @@ using System.IO;
 
 namespace StudentManagement.Contorllers {
 
-    public class HomeController : Controller { //家庭控制器
+    public class HomeController : Controller { //主控制器
         private readonly IStudentRepository _studentRepository;//仓储接口
         private readonly HostingEnvironment hostingEnvironment;
 
@@ -69,5 +70,20 @@ namespace StudentManagement.Contorllers {
             }
             return View();//Create视图
         }
+
+        [HttpGet]
+        public IActionResult Edit(int id) { //通过Edit操作方法找到Edit视图   
+            Student student = _studentRepository.GetStudent(id);//查询是否在数据库里
+            StudentEditVideModel studentEditVidew = new StudentEditVideModel {
+                Id = student.Id,
+                Name = student.Name,
+                Email = student.Email,
+                ClassName = student.ClassName,
+                ExistingPhotoPath = student.PhotoPath
+            };
+
+            return View(studentEditVidew);
+        }
+
     }
 }

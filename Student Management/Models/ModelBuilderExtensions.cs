@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.Models {
     public static class ModelBuilderExtensions {
-        public static void Seed(this ModelBuilder modelBuilder) {
+        public static void Seed(this ModelBuilder modelBuilder) {//扩展方法 ，解耦
             modelBuilder.Entity<Student>().HasData(
     new Student {
         Id = 1,
