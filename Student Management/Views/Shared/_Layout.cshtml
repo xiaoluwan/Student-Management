@@ -4,17 +4,24 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    @*<environment include="Development">
+    @*<environment exclude="Development">
             <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
         </environment>*@
-    <environment include="Development">
+
+    @*integrity是安全认证码同时检测资源是否完整,Crossorigin是允许你可以匿名访问url链接*@
+    @*asp开头是本地样式*@
+    <environment include="Development,Staging,Production">
         <link rel="stylesheet"
-              href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-              integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"
+              href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"
+
               asp-fallback-href="~/lib/twitter-bootstrap/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only"
               asp-fallback-test-property="position"
-              asp-fallback-test-value="absolute">
+              asp-fallback-test-value="absolute"
+              
+              >
+              
     </environment>
 
 

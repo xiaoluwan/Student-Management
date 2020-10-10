@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using StudentManagement.Models;
 
 namespace Student_Management {
-    public class Startup {
+    public class Startup {//所有程序的起点
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         private readonly IConfiguration _configuration;//IConfiguration用于读取各种配置资源信息
@@ -28,13 +28,19 @@ namespace Student_Management {
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         //运行时将调用此方法。使用此方法来配置HTTP请求管道。
         public void Configure(IApplicationBuilder app, IHostingEnvironment env) {
-            if (env.IsDevelopment()) {
+            if (env.IsDevelopment()) { //报错出发异常界面,如果环境是Development,调用DeveloperExceptionPage
                 app.UseDeveloperExceptionPage();
+            } else {
+
+                app.UseExceptionHandler("Error");//开发环境使用
+                //app.UseStatusCodePages();//不常用,非开发环境.
+               // app.UseStatusCodePagesWithRedirects("/Error/{0}");//占位符0 重定向可以从前端拿到错误信息(404)
+               //app.UseStatusCodePagesWithReExecute("/Error/{0}");//占位符0 重定向可以从前端拿到错误信息(404)
             }
             app.UseStaticFiles();
-            app.UseMvcWithDefaultRoute();
+            //app.UseMvcWithDefaultRoute();//默认路由模板
             app.UseMvc(routes => {
-                routes.MapRoute("default", "{controller=Home}/{action=index}/{id?}");
+                routes.MapRoute("default", "{controller=Home}/{action=index}/{id?}");//自定义路由模板//控制器会处理整个http请求,details是操作方法
             }
             );
 

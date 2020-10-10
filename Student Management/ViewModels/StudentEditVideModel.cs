@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagement.ViewModels {
     public class StudentEditVideModel : StudentCreateViewModel{
-        public int Id { get; set; }
+        //public int Id { get; set; }
         public string ExistingPhotoPath { get; set; }
     }
 }

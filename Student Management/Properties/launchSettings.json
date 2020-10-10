@@ -18,7 +18,9 @@
     "newProfile1": {
       "commandName": "IISExpress",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        //"ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Production"
+        //"ASPNETCORE_ENVIRONMENT": "Staging"
       }
     }
   }

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace StudentManagement.Models {
-    public class MockStudentRepositroy : IStudentRepository {//模拟学生资料库
+    public class MockStudentRepositroy66 : IStudentRepository {//模拟学生资料库
         private List<Student> _studentsList;
 
-        public MockStudentRepositroy() {
+        public MockStudentRepositroy66() {
             _studentsList = new List<Student>() {
                 new Student(){Id=1,Name="张三",ClassName=ClassNameEnum.FirstGrade,Email="111.com"},
                 new Student(){Id=2,Name="李四",ClassName=ClassNameEnum.SecondGrade,Email="222.com"},

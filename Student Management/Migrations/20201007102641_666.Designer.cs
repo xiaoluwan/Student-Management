@@ -9,8 +9,8 @@ using StudentManagement.Models;
 namespace StudentManagement.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200815144502_PhotoPath")]
-    partial class PhotoPath
+    [Migration("20201007102641_666")]
+    partial class _666
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

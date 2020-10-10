@@ -5,6 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200815043640_SeedStudents.cs" />
+    <Compile Remove="Migrations\20200815043640_SeedStudents.Designer.cs" />
+    <Compile Remove="Migrations\20200815054858_SeedStudents2.cs" />
+    <Compile Remove="Migrations\20200815054858_SeedStudents2.Designer.cs" />
+    <Compile Remove="Migrations\20200815144502_PhotoPath.cs" />
+    <Compile Remove="Migrations\20200815144502_PhotoPath.Designer.cs" />
+    <Compile Remove="Migrations\20201007102131_666.cs" />
+    <Compile Remove="Migrations\20201007102131_666.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.1.76" />
