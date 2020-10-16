@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "学生详情页";
-    var photoPath = "~/images/" + (Model.student.PhotoPath);//三元运算符
+    var photoPath = "~/images/" + (Model.student.PhotoPath ?? "1.jpg");//三元运算符
 }
 
 <div class="row justify-content-center m-3">
@@ -11,7 +11,7 @@
             <h1>@Model.student.Name</h1>
         </div>
         <div class="card-body text-center">
-            <img class="card-img-top" src="@photoPath" append-version="true"  />@*~/images/5.jpg,防止缓存破坏*@
+            <img class="card-img-top" src="@photoPath" asp-append-version="true"/>@*~/images/5.jpg,防止缓存破坏*@
 
             @*<video class="card-img-top"  autoplay="autoplay">
                 <source src="@photoPath" type="video/mp4">
