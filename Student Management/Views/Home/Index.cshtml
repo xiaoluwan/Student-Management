@@ -13,13 +13,15 @@
             <div class="card-header">
                 <h3>@student.Name</h3>
             </div>
-            <img class="card-img-top imagesThumbnail" src="@photoPath" asp-append-version="true" />@*~/images/1.jpg*@
-
+            <img class="card-img-top imagesThumbnail" src="@photoPath" asp-append-version="true" />~/images/1.jpg
+            @*<video class="card-img-top imagesThumbnail" controls preload="metadata">
+                <source src="@photoPath#t=0.5" type="video/mp4">
+            </video>*@
             <div class="card-footer text-center">
                 <a asp-controller="Home" asp-action="details" asp-route-id="@student.Id" class="btn btn-primary m-1'">查看</a>
                 @*<a href="/home/details/@student.Id" class="btn btn-primary">查看</a>*@
                 <a asp-controller="Home" asp-action="edit" asp-route-id="@student.Id" class="btn btn-primary m-1">编辑</a>
-                <a asp-controller="Home" asp-action="delete" asp-route-id="@student.Id" class="btn btn-danger m-">删除</a>  
+                <a asp-controller="Home" asp-action="delete" asp-route-id="@student.Id" class="btn btn-danger m-">删除</a>
             </div>
         </div>
         }

@@ -25,7 +25,7 @@
     </environment>
 
 
-    <script src="~/lib/echarts/echarts.js"></script>
+    <script src="~/lib/echarts/echarts.js"></script> @*百度图表*@
     <link href="~/css/site.css" rel="stylesheet" />
 </head>
 <body>
@@ -48,6 +48,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " asp-controller="home" asp-action="Create">添加学生</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " asp-controller="home" asp-action="ECharts">统计表</a>
                     </li>
                 </ul>
             </div>

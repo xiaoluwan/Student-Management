@@ -32,10 +32,10 @@ namespace Student_Management {
                 app.UseDeveloperExceptionPage();
             } else {
 
-                app.UseExceptionHandler("Error");//开发环境使用
+                //app.UseExceptionHandler("Error");//开发环境使用
                 //app.UseStatusCodePages();//不常用,非开发环境.
                // app.UseStatusCodePagesWithRedirects("/Error/{0}");//占位符0 重定向可以从前端拿到错误信息(404)
-               //app.UseStatusCodePagesWithReExecute("/Error/{0}");//占位符0 重定向可以从前端拿到错误信息(404)
+               app.UseStatusCodePagesWithReExecute("/Error/{0}");//占位符0 
             }
             app.UseStaticFiles();
             //app.UseMvcWithDefaultRoute();//默认路由模板

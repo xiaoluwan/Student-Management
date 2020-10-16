@@ -25,13 +25,13 @@ namespace StudentManagement.Contorllers {
             return View(students);
         }
         public IActionResult Details(int id) {//详情//JsonResult
-            throw new Exception("此异常发生在Details视图中");
+            //throw new Exception("此异常发生在Details视图中");
             //return $"id={id},名字为666";
             Student student = _studentRepository.GetStudent(id);
-            if (student==null) {
-                Response.StatusCode = 404;//回复状态码
-                return View("StudentNotFound", id);//未找到
-            }
+            //if (student==null) {
+            //    Response.StatusCode = 404;//回复状态码
+            //    return View("StudentNotFound", id);//未找到
+            //}
 
             HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel() {
                 student = student,//判断id为空则id=1
@@ -136,9 +136,13 @@ namespace StudentManagement.Contorllers {
                 string filePath = Path.Combine(hostingEnvironment.WebRootPath, "images", student.PhotoPath);
                 System.IO.File.Delete(filePath);//删除数据库旧头像  //Delete没有继承所以不是这里的问题,问题在FileStream流处理
             }
-          //return RedirectToAction("Index");
-            var student2 = _studentRepository.GetAllStudents();
-            return View("Index",student2);
+          return RedirectToAction("Index");
+           // var student2 = _studentRepository.GetAllStudents();
+            //return View("Index",student2);//不会自动修改主页路由地址
+        }
+
+        public IActionResult ECharts() {
+            return View();
         }
     }
 }
